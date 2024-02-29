@@ -1,0 +1,12 @@
+[package]
+name = "meilisearch-webhook-client"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+# Used to decompress the payload
+flate2 = "1.0.28"
+# A very basic webserver, I removed the default features; otherwise, it would uncompress the payload automatically
+rouille = { version = "3.6.2", no-default-features = true }
+# We'll use serde_json to ensure that the returned body is a valid jsonlines payload
+serde_json = { version = "1.0.114", features = ["preserve_order"] }
